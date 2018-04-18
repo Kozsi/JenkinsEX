@@ -2,8 +2,18 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        echo 'Hello World'
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Hello World'
+          }
+        }
+        stage('') {
+          steps {
+            waitUntil()
+            echo 'Siker'
+          }
+        }
       }
     }
     stage('Deploy') {
