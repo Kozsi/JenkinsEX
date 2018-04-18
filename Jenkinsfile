@@ -1,17 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('error') {
       parallel {
-        stage('Build') {
+        stage('error') {
           steps {
-            echo 'Hello World'
+            waitUntil() {
+              echo 'Echo hello WOrld'
+            }
+
           }
         }
-        stage('') {
+        stage('not error') {
           steps {
-            waitUntil()
-            echo 'Siker'
+            sleep 5
           }
         }
       }
